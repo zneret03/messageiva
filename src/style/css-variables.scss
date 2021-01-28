@@ -3,9 +3,11 @@ body {
   padding: 0;
   width: 100%;
   max-width: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
+  --brown: #7e6060;
   --blue: #005fed;
   --light-blue: #00a4f8;
   --pink: #00bbe2;
@@ -13,16 +15,17 @@ body {
   --green: #00fcc7;
   --white: #ffffff;
 
-  --fz-xxs: 12px;
-  --fz-xs: 13px;
-  --fz-sm: 14px;
-  --fz-md: 16px;
-  --fz-lg: 18px;
-  --fz-xl: 20px;
-  --fz-xxl: 22px;
+  --fz-xxs: 6px;
+  --fz-xs: 8px;
+  --fz-sm: 10px;
+  --fz-md: 12px;
+  --fz-lg: 14px;
+  --fz-xl: 16px;
+  --fz-xxl: 18px;
   --fz-heading: 32px;
 
   --border-radius: 30px;
+  --backdrop-filter: 100px;
 
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
