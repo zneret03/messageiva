@@ -1,8 +1,12 @@
 import React from "react";
-import { Login } from "../components";
+import { Login, Layout } from "../components";
 
 const Home: React.FC = () => {
-  return <Login />;
+  return (
+    <Layout>
+      <Login />
+    </Layout>
+  );
 };
 
 export default Home;

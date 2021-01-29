@@ -15,6 +15,18 @@ body {
   --green: #00fcc7;
   --white: #ffffff;
 
+  --circle-background-gradient: linear-gradient(
+    135.88deg,
+    rgba(255, 255, 255, 0.48) 1.84%,
+    rgba(255, 255, 255, 0) 99.99%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  --circle-width: 300px;
+  --circle-height: 300px;
+  --circle-radius: 50%;
+  --circle-rotate: rotate(94.26deg);
+  --circle-border: 1px solid rgba(255, 255, 255, 0.5);
+
   --fz-xxs: 6px;
   --fz-xs: 8px;
   --fz-sm: 10px;
