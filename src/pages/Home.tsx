@@ -1,10 +1,10 @@
 import React from "react";
-import { Login, Layout } from "../components";
+import { Modal, Layout } from "../components";
 
 const Home: React.FC = () => {
   return (
     <Layout>
-      <Login />
+      <Modal />
     </Layout>
   );
 };
