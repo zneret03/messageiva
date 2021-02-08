@@ -1,0 +1,19 @@
+.panel {
+  z-index: 1;
+  transition: var(--transition);
+  background: linear-gradient(
+    135.88deg,
+    rgba(255, 255, 255, 0.48) 1.84%,
+    rgba(255, 255, 255, 0) 99.99%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 350px;
+  transform: translate(-50%, -50%);
+  padding: 95px 60px;
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
