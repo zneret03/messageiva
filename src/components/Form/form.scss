@@ -1,5 +1,5 @@
 .card {
-  backdrop-filter: blur(5px);
+  //backdrop-filter: blur(5px);
   transition: var(--transition);
   padding: 95px 60px;
   width: 100%;
@@ -24,6 +24,13 @@
   @media (max-width: 480px) {
     max-width: 260px;
     padding: 80px 30px;
+  }
+
+  .error {
+    border-radius: 5px;
+    font-size: var(--fz-lg);
+    color: var(--white);
+    text-align: center;
   }
 
   p {
