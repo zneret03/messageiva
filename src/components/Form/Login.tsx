@@ -1,19 +1,34 @@
 import React, { useState } from "react";
 import { Message, Key } from "../icons";
+import { app } from "../../config/firebase";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import "./form.scss";
 
 interface PropTypes {
+  history: any;
   isToggle: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Login: React.FC<PropTypes> = ({ isToggle }) => {
+const Login: React.FC<PropTypes & RouteComponentProps> = ({
+  isToggle,
+  history,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setError] = useState({ status: false, message: "" });
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
 
-    console.log({ email, password });
+    app
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        history.push("/dashboard");
+      })
+      .catch((error: any) => {
+        setError({ status: true, message: error.message });
+      });
   };
 
   return (
@@ -47,6 +62,17 @@ const Login: React.FC<PropTypes> = ({ isToggle }) => {
       <button className="btn-login" onClick={(event) => onSubmit(event)}>
         Login
       </button>
+      {isError.status && (
+        <p
+          className="error"
+          style={{
+            background: "rgba(255, 19, 111, 0.5)",
+            padding: isError.status && "10px 10px",
+          }}
+        >
+          {isError.message}
+        </p>
+      )}
       <p>
         You dont have an account?{" "}
         <button className="btn-signup" onClick={(event) => isToggle(event)}>
@@ -57,4 +83,4 @@ const Login: React.FC<PropTypes> = ({ isToggle }) => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

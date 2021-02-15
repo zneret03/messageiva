@@ -1,12 +1,8 @@
 import React from "react";
-import { Layout, Panel } from "../components";
+import { Panel } from "../components";
 
 const Dashboard: React.FC = () => {
-  return (
-    <Layout>
-      <Panel />
-    </Layout>
-  );
+  return <Panel />;
 };
 
 export default Dashboard;
