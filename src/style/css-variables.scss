@@ -9,6 +9,7 @@ body {
 :root {
   --brown: #7e6060;
   --blue: #005fed;
+  --blue-slate: #00a4ea;
   --light-blue: #00a4f8;
   --pink: #00bbe2;
   --light-pink: #00fffa;
@@ -54,18 +55,18 @@ h6 {
   line-height: 1.1;
 }
 
-section {
-  margin: 0 auto;
-  max-width: 1000px;
-  padding: 100px 0 0;
-  @media (max-width: 1080px) {
-    padding: 80px 90px;
-  }
-  @media (max-width: 768px) {
-    padding: 70px 30px;
-  }
+// section {
+//   margin: 0 auto;
+//   max-width: 1000px;
+//   padding: 100px 0 0;
+//   @media (max-width: 1080px) {
+//     padding: 80px 90px;
+//   }
+//   @media (max-width: 768px) {
+//     padding: 70px 30px;
+//   }
 
-  @media (max-width: 480px) {
-    padding: 60px 30px;
-  }
-}
+//   @media (max-width: 480px) {
+//     padding: 60px 30px;
+//   }
+// }
