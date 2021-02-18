@@ -1,11 +1,13 @@
 import React from "react";
-import { app } from "../../config/firebase";
+//import { app } from "../../config/firebase";
+import { RightSidebar } from "../";
 import "./panel.scss";
 
 const Panel: React.FC = () => {
+  //() => app.auth().signOut()
   return (
-    <div className="panel" onClick={() => app.auth().signOut()}>
-      Signout
+    <div className="panel">
+      <RightSidebar />
     </div>
   );
 };

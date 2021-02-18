@@ -20,8 +20,6 @@ const PrivateRouter: React.FC<PropsTypes> = ({
 }) => {
   useEffect(log_user, [log_user]);
 
-  console.log(data);
-
   const routerComponent = (props: any) => {
     return data.userData != null ? (
       <Layout key="data">{React.createElement(RoutComponent, props)}</Layout>
