@@ -1,31 +1,31 @@
 import React, { useState } from "react";
-import { Menu } from "../../utils/config";
+import { LeftMenu } from "../../utils/config";
 import "./rightSidebar.scss";
 
 interface initialStateTypes {
-  starred: boolean;
-  channel: boolean;
-  directMessage: boolean;
+  channelDetails: boolean;
+  topPoster: boolean;
+  createdBy: boolean;
 }
 
 const initialState: initialStateTypes = {
-  starred: false,
-  channel: false,
-  directMessage: false,
+  channelDetails: false,
+  topPoster: false,
+  createdBy: false,
 };
 
 const RightSidebar: React.FC = () => {
-  const [{ starred, channel, directMessage }, setToggle] = useState(
+  const [{ channelDetails, topPoster, createdBy }, setState] = useState(
     initialState
   );
 
   const config = {
-    starred,
-    channel,
-    directMessage,
+    channelDetails,
+    topPoster,
+    createdBy,
   };
 
-  const onToggle = (
+  const isToggle = (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     index: number
   ) => {
@@ -33,21 +33,21 @@ const RightSidebar: React.FC = () => {
 
     switch (index) {
       case 0:
-        setToggle((prevState) => ({
+        setState((prevState) => ({
           ...prevState,
-          starred: !starred ? true : false,
+          channelDetails: !channelDetails ? true : false,
         }));
         break;
       case 1:
-        setToggle((prevState) => ({
+        setState((prevState) => ({
           ...prevState,
-          channel: !channel ? true : false,
+          topPoster: !topPoster ? true : false,
         }));
         break;
       case 2:
-        setToggle((prevState) => ({
+        setState((prevState) => ({
           ...prevState,
-          directMessage: !directMessage ? true : false,
+          createdBy: !createdBy ? true : false,
         }));
         break;
       default:
@@ -55,20 +55,21 @@ const RightSidebar: React.FC = () => {
     }
   };
 
-  const sidebarMenu = Menu(config);
+  console.log({ channelDetails, topPoster, createdBy });
+
+  const sidebarMenu = LeftMenu(config);
 
   return (
     <div className="right-sidebar">
       <section>
         <div className="image-container">
-          <img className="profile" src="/image/sample-profile.jpg" alt="" />
+          <img className="profile" src="/image/javascript-logo.png" alt="" />
         </div>
-        <h2>Ian Drilon</h2>
-        <span>iandrilon2@yahoo.com</span>
+        <h1>#Javascript</h1>
         <ul>
           {sidebarMenu.map((menu: any, index: number) => (
-            <li key={index} onClick={(event) => onToggle(event, index)}>
-              <div className="right-sidebar-menu">
+            <li key={index} onClick={(event) => isToggle(event, index)}>
+              <div className="left-sidebar-menu">
                 <i>{menu.icon}</i>
                 <span>{menu.title}</span>
               </div>
@@ -76,14 +77,6 @@ const RightSidebar: React.FC = () => {
             </li>
           ))}
         </ul>
-        <div className="right-sidebar-card">
-          <p>Join pro for free message</p>
-          <img
-            className="mobile-marketing"
-            src="./image/mobile-marketing.svg"
-            alt=""
-          />
-        </div>
       </section>
     </div>
   );
