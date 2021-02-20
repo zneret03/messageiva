@@ -1,6 +1,6 @@
 import React from "react";
 //import { app } from "../../config/firebase";
-import { LeftSidebar, RightSidebar } from "../";
+import { LeftSidebar, RightSidebar, Navbar } from "../";
 import "./panel.scss";
 
 const Panel: React.FC = () => {
@@ -8,6 +8,7 @@ const Panel: React.FC = () => {
   return (
     <div className="panel">
       <LeftSidebar />
+      <Navbar />
       <RightSidebar />
     </div>
   );

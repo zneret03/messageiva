@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LeftMenu } from "../../utils/config";
+import { useSelector } from "react-redux";
 import "./rightSidebar.scss";
 
 interface initialStateTypes {
@@ -15,6 +16,8 @@ const initialState: initialStateTypes = {
 };
 
 const RightSidebar: React.FC = () => {
+  const toggleRightSidebar = useSelector((state: any) => state.rightSidebar);
+
   const [{ channelDetails, topPoster, createdBy }, setState] = useState(
     initialState
   );
@@ -55,30 +58,36 @@ const RightSidebar: React.FC = () => {
     }
   };
 
-  console.log({ channelDetails, topPoster, createdBy });
-
   const sidebarMenu = LeftMenu(config);
 
   return (
-    <div className="right-sidebar">
-      <section>
-        <div className="image-container">
-          <img className="profile" src="/image/javascript-logo.png" alt="" />
+    <>
+      {toggleRightSidebar.rightSidebar && (
+        <div className="right-sidebar">
+          <section>
+            <div className="image-container">
+              <img
+                className="profile"
+                src="/image/javascript-logo.png"
+                alt=""
+              />
+            </div>
+            <h1>#Javascript</h1>
+            <ul>
+              {sidebarMenu.map((menu: any, index: number) => (
+                <li key={index} onClick={(event) => isToggle(event, index)}>
+                  <div className="left-sidebar-menu">
+                    <i>{menu.icon}</i>
+                    <span>{menu.title}</span>
+                  </div>
+                  {menu.arrow}
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
-        <h1>#Javascript</h1>
-        <ul>
-          {sidebarMenu.map((menu: any, index: number) => (
-            <li key={index} onClick={(event) => isToggle(event, index)}>
-              <div className="left-sidebar-menu">
-                <i>{menu.icon}</i>
-                <span>{menu.title}</span>
-              </div>
-              {menu.arrow}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+      )}
+    </>
   );
 };
 
