@@ -5,6 +5,7 @@ export { default as Channel } from "./Channel";
 export { default as Star } from "./Star";
 export { default as Send } from "./Send";
 export { default as Search } from "./Search";
+export { default as Image } from "./Image";
 export { default as Information } from "./Information";
 export { default as DirectMessage } from "./DirectMessage";
 export { default as RightArrow } from "./RightArrow";

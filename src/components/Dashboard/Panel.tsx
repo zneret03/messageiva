@@ -1,6 +1,12 @@
 import React from "react";
 //import { app } from "../../config/firebase";
-import { LeftSidebar, RightSidebar, Navbar } from "../";
+import {
+  LeftSidebar,
+  RightSidebar,
+  Navbar,
+  InputMessage,
+  MessageBox,
+} from "../";
 import "./panel.scss";
 
 const Panel: React.FC = () => {
@@ -8,7 +14,11 @@ const Panel: React.FC = () => {
   return (
     <div className="panel">
       <LeftSidebar />
-      <Navbar />
+      <div className="navbar">
+        <Navbar />
+        <MessageBox />
+        <InputMessage />
+      </div>
       <RightSidebar />
     </div>
   );
